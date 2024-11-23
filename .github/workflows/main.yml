@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Testing Actions of The GitHub'
+        run: pwd
+
+      - name: 'Testing Printing The Name'
+        run: echo 'Maram Basyouny'
+
+      - name: 'Printing File Content Before using uses'
+        run: ls
+
+      - name: 'Checkout code'
+        uses: actions/checkout@v3
+
+      - name: 'Printing File Content After using uses'
+        run: ls
+
+    
