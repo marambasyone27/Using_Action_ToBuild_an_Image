@@ -23,13 +23,13 @@ jobs:
       - name: 'Printing File Content After using uses'
         run: ls
 
+      # إضافة خطوة لتثبيت Node.js
       - name: 'Setup Node.js'
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  
+          node-version: '20'
 
+      # إضافة خطوة لتسجيل الدخول إلى Docker Hub
       - name: 'Login to Docker Hub'
         run: |
-          echo ${{ secrets.DOCKER_USERNAME }}
-          echo ${{ secrets.DOCKER_PASSWORD }}
-          docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_PASSWORD }}
+          echo ${{ secrets.DOCKER_USERNAME }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
